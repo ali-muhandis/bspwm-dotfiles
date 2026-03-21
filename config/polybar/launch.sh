@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+export XCURSOR_THEME=catppuccin-mocha-blue-cursors
+export XCURSOR_SIZE=24
+
 # Terminate already running bar instances
 killall -q polybar
 

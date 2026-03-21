@@ -1,9 +1,15 @@
 #!/bin/sh
 
+
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Multiple monitor support
 sh $HOME/.config/bspwm/dual_monitors.sh
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+feh --bg-scale ~/pictures/wallpapers/default.png &
 
 # Window borders (Auto-Generate)
 bspc config focus_follows_pointer true
@@ -15,7 +21,9 @@ bspc config borderless_monocle true
 bspc config active_border_color "#bd93f9"
 bspc config presel_feedback_color "#6272a4"
 
-# fix pointer
+# fix pointer + Catppuccin cursor
+export XCURSOR_THEME=catppuccin-mocha-blue-cursors
+export XCURSOR_SIZE=24
 xsetroot -cursor_name left_ptr
 
 # gaps
@@ -30,6 +38,11 @@ bspc config pointer_action3 resize_corner
 
 # rules
 bspc rule -a feh state=floating
+
+# Disable screen saver and DPMS
+xset s off
+xset -dpms
+xset s noblank
 
 # start resources
 xrdb merge ~/.Xresources

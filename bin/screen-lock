@@ -1,23 +1,37 @@
 #!/bin/bash
 
-# https://github.com/Raymo111/i3lock-color
+# Catppuccin Mocha colors
+bg=1E1E2E
+fg=CDD6F4
+blue=89B4FA
+red=F38BA8
+green=A6E3A1
+lavender=B4BEFE
 
-fg=c0caf5
-wrong=db4b4b
-date=7aa2f7
-verify=7aa2f7
+lock_image="$HOME/pictures/wallpapers/default.png"
 
-lock_image="$HOME/Images/system/lock_screen.png"
+# Get screen center
+RES=$(xrandr | grep " connected" | grep -oP '\d+x\d+' | head -1)
+W=$(echo $RES | cut -dx -f1)
+H=$(echo $RES | cut -dx -f2)
+CX=$((W / 2))
+CY=$((H / 2))
 
 i3lock -n --force-clock -i $lock_image -e --indicator --radius=20 \
---ring-width=40 --inside-color=$fg --ring-color=$fg --insidever-color=$verify \
---ringver-color=$verify --insidewrong-color=$wrong --ringwrong-color=$wrong \
---line-uses-inside --keyhl-color=$verify --separator-color=$verify --bshl-color=$verify \
---time-str="%H:%M" --time-size=140 --date-str="%a, %d %b" --date-size=45 --verif-text="Verifying Password..." \
---wrong-text="Wrong Password!" --noinput-text="" --greeter-text="Type the password to Unlock" --ind-pos="650:760" \
---time-font="Fira Code:style=Bold" --date-font="Fira Code" --verif-font="Fira Code" --greeter-font="Fira Code" \
---wrong-font="Fira Code" --verif-size=23 --greeter-size=23 --wrong-size=23 --time-pos="650:540" --date-pos="650:600" \
---greeter-pos="650:930" --wrong-pos="650:970" --verif-pos="650:805" --date-color=$date --time-color=$date --greeter-color=$fg \
---wrong-color=$wrong --verif-color=$verify --verif-pos="650:970" --pointer=default --refresh-rate=0 --pass-media-keys \
---pass-volume-keys
-
+--ring-width=40 --inside-color=$bg --ring-color=$blue --insidever-color=$bg \
+--ringver-color=$green --insidewrong-color=$bg --ringwrong-color=$red \
+--line-uses-inside --keyhl-color=$blue --separator-color=$bg --bshl-color=$red \
+--time-str="%H:%M" --time-size=140 --date-str="%a, %d %b" --date-size=45 --verif-text="Verifying..." \
+--wrong-text="Wrong Password!" --noinput-text="" --greeter-text="Type password to unlock" \
+--ind-pos="$CX:$((CY + 80))" \
+--time-pos="$CX:$((CY - 100))" \
+--date-pos="$CX:$((CY - 40))" \
+--greeter-pos="$CX:$((CY + 250))" \
+--wrong-pos="$CX:$((CY + 290))" \
+--verif-pos="$CX:$((CY + 290))" \
+--time-font="JetBrainsMono Nerd Font:style=Bold" --date-font="JetBrainsMono Nerd Font" \
+--verif-font="JetBrainsMono Nerd Font" --greeter-font="JetBrainsMono Nerd Font" \
+--wrong-font="JetBrainsMono Nerd Font" --verif-size=23 --greeter-size=23 --wrong-size=23 \
+--date-color=$blue --time-color=$fg --greeter-color=$lavender \
+--wrong-color=$red --verif-color=$green --pointer=default --refresh-rate=0 \
+--pass-media-keys --pass-volume-keys

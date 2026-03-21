@@ -1,111 +1,191 @@
-<h1 align="center"> :herb: ZProger Build :herb: </h1>
-
-<!-- BADGES -->
-</br>
+<h1 align="center">Arch Linux + bspwm Dotfiles</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/issues/zproger/bspwm-dotfiles?style=for-the-badge">
-  </br>
-  <img src="https://img.shields.io/github/languages/count/zproger/bspwm-dotfiles?style=for-the-badge">
-  <img src="https://img.shields.io/github/repo-size/Zproger/bspwm-dotfiles?style=for-the-badge">
-  </br>
+  <b>A fully configured Arch Linux desktop environment with bspwm, Catppuccin Mocha theme, and automated installer.</b>
 </p>
 
-<!-- INFORMATION -->
-<h1 align="left"> :blue_book: About</h1> 
+<p align="center">
+  <img src="https://img.shields.io/badge/OS-Arch%20Linux-1793D1?style=for-the-badge&logo=archlinux&logoColor=white">
+  <img src="https://img.shields.io/badge/WM-bspwm-89B4FA?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Theme-Catppuccin%20Mocha-1E1E2E?style=for-the-badge">
+</p>
 
-<img src="demonstration/1.png" alt="rice" align="right" width="500px">
+---
 
-</br>
+## Overview
 
- - OS: [**`Arch Linux`**](https://archlinux.org/)
- - WM: [**`BSPWM`**](https://github.com/baskerville/bspwm)
- - Bar: [**`Polybar`**](https://github.com/polybar/polybar)
- - Compositor: [**`Picom`**](https://github.com/yshui/picom)
- - Terminal: [**`Alacritty`**](https://github.com/alacritty/alacritty)
- - App Launcher: [**`Rofi`**](https://github.com/davatorium/rofi)
- - Notify Daemon: [**`Dunst`**](https://github.com/dunst-project/dunst)
- - Shell: [**`Fish`**](https://github.com/fish-shell/fish-shell)
+| Component | Tool |
+|---|---|
+| **OS** | [Arch Linux](https://archlinux.org/) |
+| **WM** | [bspwm](https://github.com/baskerville/bspwm) |
+| **Bar** | [Polybar](https://github.com/polybar/polybar) |
+| **Compositor** | [Picom](https://github.com/yshui/picom) |
+| **Terminal** | [Alacritty](https://github.com/alacritty/alacritty) |
+| **Shell** | [Fish](https://fishshell.com/) + [Starship](https://starship.rs/) |
+| **Multiplexer** | [tmux](https://github.com/tmux/tmux) |
+| **Editor** | [Neovim](https://neovim.io/) (lazy.nvim) |
+| **Launcher** | [Rofi](https://github.com/davatorium/rofi) |
+| **Notifications** | [Dunst](https://github.com/dunst-project/dunst) |
+| **File Manager** | [Thunar](https://docs.xfce.org/xfce/thunar/start) + [Ranger](https://ranger.github.io/) |
+| **Login Manager** | [SDDM](https://github.com/sddm/sddm) (Astronaut theme) |
+| **Audio** | [PipeWire](https://pipewire.org/) + WirePlumber |
+| **Database** | [PostgreSQL](https://www.postgresql.org/) |
+| **Firewall** | [UFW](https://wiki.archlinux.org/title/Uncomplicated_Firewall) |
 
-</br>
+## Theme
 
+**Catppuccin Mocha** (blue accent) applied consistently across:
 
-<!-- IMAGES -->
-## 🖼️ Gallery
-![gallery](demonstration/1.png)
-![gallery](demonstration/2.png)
-![gallery](demonstration/3.png)
-![gallery](demonstration/4.png)
-![gallery](demonstration/5.png)
-![gallery](demonstration/6.png)
-![gallery](demonstration/7.png)
+- GTK 2/3/4 — `catppuccin-mocha-blue-standard+default`
+- Cursors — `catppuccin-mocha-blue-cursors`
+- Icons — `Papirus-Dark`
+- Terminal — Catppuccin Mocha colors
+- Neovim — Catppuccin colorscheme
+- tmux — Custom Catppuccin status bar
+- Firefox — Custom userChrome.css
+- SDDM — Astronaut theme with Catppuccin colors
+- GRUB — Catppuccin Mocha + Arch Linux logo
+- i3lock — Catppuccin colors with wallpaper background
+- btop — Catppuccin Mocha theme
 
+## Features
 
-<!-- FEATURES -->
-## 🚀 Features
-* Customizing software on the system.
-* Support for over 300 dynamic wallpapers.
-* Lots of handy scripts in bin/.
-* Convenient custom configuration of Firefox.
-* All hotkeys are honed for maximum productivity.
-* A very lightweight system that consumes less than 700mb of memory.
-* Automatic installation and configuration of all basic software for development.
+- **Automated installer** — single `python3 install.py` sets up everything
+- **tmux** — Ctrl+a prefix, vim-style navigation, auto-save sessions, homepage with Arch logo
+- **Neovim** — LSP (pyright, ts_ls, rust_analyzer, ruff), autocomplete, treesitter, telescope
+- **Fish shell** — zoxide (smart cd), fzf (fuzzy finder), eza (modern ls), starship prompt
+- **Polybar** — workspaces, CPU, memory, temperature, battery, backlight, volume, clock, keyboard layout
+- **Picom** — blur, shadows, rounded corners, fading animations
+- **Screen lock** — i3lock-color with Catppuccin theme, auto-centered
+- **30+ utility scripts** — volume, brightness, powermenu, random wallpaper, wifi menu, calculator, timer
+- **SSH agent** — auto-loads keys on shell startup
+- **PostgreSQL** — auto-configured with user superuser
+- **Timeshift** — weekly system backups via cronie
 
-**And more features: [EN](Docs/03_all_features_and_tricks_english.md), [RU](Docs/02_all_features_and_tricks_russian.md)**
+## Keybindings
 
-<table align="center">
-   <tr>
-      <th align="center">
-         <sup>:warning: WARNING :warning:</sup>
-      </th>
-   </tr>
-   <tr>
-      <td align="center">
-        THIS CONFIGURATION IS DESIGNED FOR 1920X1080 MONITORS,
-        SOME FUNCTIONALITY OF THE SHELL MAY NOT WORK AS IT SHOULD.
-        IN THIS CASE YOU NEED TO MAKE ADJUSTMENTS MANUALLY.
-        IF YOU FIND ERRORS IN THE SHELL, PLEASE REPORT THE PROBLEM.
-   </tr>
-   </table>
+### General
+| Key | Action |
+|---|---|
+| `Super + Enter` | Terminal (Alacritty) |
+| `Super + d` | App launcher (Rofi) |
+| `Super + c` | Close window |
+| `Super + x` | Powermenu |
+| `Super + w` | Random wallpaper |
+| `Super + p` | Toggle Polybar |
+| `Super + Space` | Toggle floating/tiled |
+| `Super + f` | Fullscreen |
+| `Super + 1-9` | Switch workspace |
+| `Super + Shift + 1-9` | Move window to workspace |
+| `Alt + Shift` | Change keyboard layout (US/RU) |
+| `Print` | Screenshot (Flameshot) |
+| `Ctrl + Shift + q` | Quit bspwm |
+| `Ctrl + Shift + r` | Restart bspwm |
 
+### tmux (prefix: Ctrl+a)
+| Key | Action |
+|---|---|
+| `Ctrl+a \|` | Vertical split |
+| `Ctrl+a -` | Horizontal split |
+| `Ctrl+a h/j/k/l` | Navigate panes |
+| `Ctrl+a c` | New window |
+| `Ctrl+a n/p` | Next/previous window |
+| `Ctrl+a ,` | Rename window |
+| `Ctrl+a $` | Rename session |
+| `Ctrl+a d` | Detach session |
+| `Ctrl+a s` | List sessions |
+| `Ctrl+a r` | Reload config |
+| `Ctrl+a Space` | tmux-thumbs (select text) |
+| `Ctrl+a f` | tmux-fzf (fuzzy finder) |
+| `Ctrl+a Ctrl+s` | Save session |
+| `Ctrl+a Ctrl+r` | Restore session |
 
-<!-- INSTALLATION -->
-## :blue_book: Installation
-A guide to installing the system and graphical shell via builder: [EN](Docs/01_installing_arch_linux_with_bspwm_english.md), [RU](Docs/00_installing_arch_linux_with_bspwm_russian.md). 
+### Super + Shift — Applications
+| Key | App |
+|---|---|
+| `f` | Firefox |
+| `n` | Thunar |
+| `p` | Pavucontrol |
+| `t` | Telegram |
+| `c` | Calculator |
+| `i` | Firefox Private |
+| `l` | Screen Lock |
+| `e` | Emoji Picker |
+| `s` | Timer |
+| `k` | Calcurse |
 
+## Installation
 
-<!-- ERRORS -->
-## :moyai: Post-installation fixes
-Complete instructions for corrections: https://youtu.be/9zewiGf7j-A
-* **The brightness of the screen is not displayed on the bar**. This error is due to the fact that the Builder was unable to automatically install drivers for the video card or processor. You need to go to [Arch Wiki](https://wiki.archlinux.org/) and do the installation manually.
-* **The battery is not displayed on the bar**. You need to open `~/bin/battery-alert` and change the `battery` variable to your battery value. Then go to `~/.config/polybar/modules.ini` and edit the `[module/battery]` module according to the polybar instructions to match your `battery` and `adapter` data.
-* **Hangs animation or terminals**. The problem is that you may not be using graphics drivers or may be working from a virtual machine. You need to open `~/.config/bspwm/bspwmrc` and comment out the line with the `picom` startup.
-* **Interface problem**. If you are not using a `1920x1080 monitor`, the interface may not look like it should. In that case you need to manually edit the configuration.
-* **User name error**. At this point, the configuration is installed locally on the user from where the builder was running. Also the username must be `user` for the system to work properly. If you get this error, you need to create a new user named `user` and redo the installation.
-* **Other errors**. If you find bugs that aren't listed here and you're sure you followed the manual, then be sure to contact us so we can fix the bug in the next update.
+### Prerequisites
+- Fresh Arch Linux installation with base system
+- Internet connection
+- Git installed
 
+### Quick Install
 
-<!-- HOTKEYS -->
-## 💻 HotKeys
-* **Open the terminal** - `super + enter`
-* **Set a random wallpaper** - `super + w`
-* **Switch the layout** - `shift + alt`
-* **Open the application menu** - `super + d`
-* **Derive a random verse from the Bible** - `super + shift + q`
-* **Open the browser in incognito mode** - `super + shift + i`
-* **Recognize the color on the screen** - `super + shift + x`
-* **Lock the screen** - `super + shift + l`
-* **Open the console calendar** - `super + shift + k`
-* **Launch Telegram** - `super + shift + t`
-* **Close the window that is in focus** - `super + c`
-* **Take a screenshot** - `print`
-* **Restart bspwm** - `ctrl + shift + r`
-* **Switch to another desktop** - `super + 1/6`
-* **Move the window to another desktop** - `super + shift + 1/6`
-* **Switch the window to floating mode** - `super + space`
+```bash
+git clone https://github.com/your-username/bspwm-dotfiles.git ~/bspwm-dotfiles
+cd ~/bspwm-dotfiles/Builder
+python3 install.py
+```
 
-The other hotkeys are in `~/.config/sxhkd/sxhkdrc`.
+The installer will ask 4 questions:
+1. **Install dotfiles?** — copies all configs to `~/.config/`
+2. **Update Arch database?** — runs `pacman -Syu`
+3. **Install BSPWM dependencies?** — installs all packages
+4. **Install dev dependencies?** — installs dev tools (VS Code, OBS, etc.)
 
-#
+### Post-install
 
-The project is actively developing, so you can offer your ideas for improvements and visit our [YouTube channel](https://youtube.com/@zproger) and [Telegram](https://t.me/codeblog8). Go to the `Projects` tab to keep track of current shell updates and future improvements.
+After installation, reboot and select bspwm from SDDM login screen.
+
+```bash
+sudo reboot
+```
+
+## Directory Structure
+
+```
+bspwm-dotfiles/
+├── Builder/              # Automated installer
+│   ├── install.py        # Entry point
+│   ├── packages.py       # Package lists
+│   ├── options.py        # User interface
+│   ├── logger.py         # Logging system
+│   └── creators/         # Installation modules
+├── config/               # All ~/.config/ files
+│   ├── alacritty/        # Terminal config
+│   ├── bspwm/            # Window manager
+│   ├── fish/             # Shell config
+│   ├── nvim/             # Neovim config
+│   ├── polybar/          # Status bar
+│   ├── picom/            # Compositor
+│   ├── rofi/             # Launcher
+│   ├── sxhkd/            # Keybindings
+│   ├── btop/             # System monitor
+│   ├── gtk-2.0/3.0/4.0/  # GTK themes
+│   └── ...
+├── bin/                  # Utility scripts
+├── sddm/                # Login screen theme
+├── themes/               # GTK themes
+├── firefox/              # Browser customization
+├── Images/               # Wallpapers
+├── .tmux.conf            # tmux configuration
+├── Xresources            # X11 settings
+├── xinitrc               # X11 init
+└── gtkrc-2.0             # GTK2 config
+```
+
+## Font Stack
+
+| Usage | Font |
+|---|---|
+| Terminal / Polybar / Code | JetBrainsMono Nerd Font |
+| System UI (GTK) | Noto Sans |
+| Browser content | Page default fonts |
+
+## Credits
+
+- Based on [ZProger/bspwm-dotfiles](https://github.com/zproger/bspwm-dotfiles)
+- Theme: [Catppuccin](https://github.com/catppuccin/catppuccin)
+- SDDM Theme: [sddm-astronaut-theme](https://github.com/Keyitdev/sddm-astronaut-theme)

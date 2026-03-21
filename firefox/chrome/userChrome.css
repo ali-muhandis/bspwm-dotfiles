@@ -4,26 +4,26 @@
   --tabs-border: transparent !important; 
   --tab-border-radius: 0 !important; 
    
-  /* Color Variables */
-  --zproger-bg: #1a1b26;
-  --zproger-icon-color: #e0fbfc;  
-  --zproge-sidebar-color: #e0fbfc;
-  --zproger-tab-selected-bg: #4d4168;
-  --zproger-urlbar-color: #98c1d9;
-  --zproger-urlbar-focused-color: #e0fbfc;
-  --zproger-urlbar-results-color: #e0fbfc;
-  --zproger-urlbar-results-url-color: #98c1d9;
+  /* Color Variables - Catppuccin Mocha */
+  --zproger-bg: #1E1E2E;
+  --zproger-icon-color: #CDD6F4;
+  --zproge-sidebar-color: #CDD6F4;
+  --zproger-tab-selected-bg: #313244;
+  --zproger-urlbar-color: #89B4FA;
+  --zproger-urlbar-focused-color: #CDD6F4;
+  --zproger-urlbar-results-color: #CDD6F4;
+  --zproger-urlbar-results-url-color: #89B4FA;
   
   /* Browser Fonts */
-  --zproger-urlbar-results-font-family: "JetBrainsMono Nerd Font", medium;
-  --zproger-urlbar-results-font-weight: 700;
+  --zproger-urlbar-results-font-family: "Noto Sans", sans-serif;
+  --zproger-urlbar-results-font-weight: 500;
 
   /* Overriden Firefox variables */
   --autocomplete-popup-background: var(--zproger-bg) !important;
   --default-arrowpanel-background: var(--zproger-bg) !important;
   --default-arrowpanel-color: #fefefa !important;
   --lwt-toolbarbutton-icon-fill: var(--zproger-icon-color) !important;
-  --panel-disabled-color: #f9f9fa80;
+  --panel-disabled-color: #6C708680;
   --toolbar-bgcolor: var(--zproger-bg) !important;
   --urlbar-separator-color: transparent !important;
 }
@@ -61,7 +61,7 @@ hbox.tab-content[pinned=true] .tab-text {
 } 
 
 #tabbrowser-tabs { 
-  --tab-loading-fill: #033433 !important; 
+  --tab-loading-fill: #89B4FA !important; 
 } 
 
 .tab-line { 
@@ -70,17 +70,27 @@ hbox.tab-content[pinned=true] .tab-text {
 
 /* Customize Browser Tabs */ 
 .tabbrowser-tab {
-  border-radius: 8px !important; 
-  height: 50px !important; 
-  margin-top: 6px !important; 
-  margin-left: 6px !important;
-  margin-bottom: 4px !important;
-  max-height: 80% !important; 
-  min-height: 80% !important; 
+  border-radius: 6px !important;
+  height: 26px !important;
+  margin-top: 1px !important;
+  margin-left: 2px !important;
+  margin-bottom: 1px !important;
+  max-height: 80% !important;
+  min-height: 80% !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 } 
 
-.tabbrowser-tab[soundplaying="false"] { 
-  background-color: #ee6c4d !important; 
+.tabbrowser-tab[soundplaying="false"] {
+  background-color: #F38BA8 !important;
+  border: none !important;
+}
+
+.tab-background {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 } 
 
 .tab-icon-sound { 
@@ -135,12 +145,12 @@ hbox.tab-content[pinned=true] .tab-text {
   display: none !important; 
 } 
 
-#urlbar-input { 
-  font-size: 12pt !important; 
-  color: var(--zproger-urlbar-color) !important; 
-  font-family: var(--zproger-urlbar-results-font-family) !important; 
-  font-weight: var(--zproger-urlbar-results-font-weight)!important; 
-  text-align: center !important; 
+#urlbar-input {
+  font-size: 11pt !important;
+  color: var(--zproger-urlbar-color) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-weight: 400 !important;
+  text-align: center !important;
 } 
 
 tracking-protection-icon-container, #identity-box { 

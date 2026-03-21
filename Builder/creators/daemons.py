@@ -8,15 +8,16 @@ class Daemons:
         Daemons.__enable_bluetooth_daemon()
         Daemons.__enable_tor_daemon()
         Daemons.__enable_mpd_daemon()
+        Daemons.__enable_pipewire()
 
     @staticmethod
     def __enable_mpd_daemon():
-        os.system("sudo systemctl --user enable mpd")
+        os.system("systemctl --user enable mpd")
 
     @staticmethod
     def __enable_network_daemon():
         os.system("sudo systemctl enable NetworkManager")
-    
+
     @staticmethod
     def __enable_bluetooth_daemon():
         os.system("sudo systemctl enable bluetooth.service")
@@ -26,3 +27,12 @@ class Daemons:
     def __enable_tor_daemon():
         os.system("sudo systemctl enable tor.service")
         os.system("sudo systemctl start tor.service")
+
+    @staticmethod
+    def __enable_pipewire():
+        os.system("systemctl --user enable pipewire")
+        os.system("systemctl --user enable pipewire-pulse")
+        os.system("systemctl --user enable wireplumber")
+        os.system("systemctl --user start pipewire")
+        os.system("systemctl --user start pipewire-pulse")
+        os.system("systemctl --user start wireplumber")
