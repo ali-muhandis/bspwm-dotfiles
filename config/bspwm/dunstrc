@@ -36,6 +36,7 @@
   mouse_left_click = do_action, close_current
   mouse_middle_click = close_current
   mouse_right_click = close_all
+  script = /home/user/bin/focus-app
 
 [urgency_low]
   background = "#1E1E2E"
@@ -54,8 +55,3 @@
   frame_color = "#989CFA"
   foreground = "#D9E0EE"
   timeout = 10
-
-[telegram]
-  appname = Telegram*
-  default_action_name = "Focus Telegram"
-  script = /home/user/bin/focus-telegram

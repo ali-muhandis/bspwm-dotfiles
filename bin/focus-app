@@ -1,0 +1,17 @@
+#!/bin/bash
+# Focus the window that sent the notification
+# Dunst passes: appname, summary, body, icon, urgency
+APPNAME="$1"
+
+# Find window by class name matching appname
+WIN_ID=$(bspc query -N -n .window | while read wid; do
+    WM_CLASS=$(xprop -id "$wid" WM_CLASS 2>/dev/null | grep -oP '"[^"]*"' | tr -d '"' | tr '\n' ' ')
+    if echo "$WM_CLASS" | grep -qi "$APPNAME"; then
+        echo "$wid"
+        break
+    fi
+done)
+
+if [ -n "$WIN_ID" ]; then
+    bspc node "$WIN_ID" -f
+fi
