@@ -1,6 +1,6 @@
 [global]
   monitor = 0
-  follow = mouse
+  follow = none
   shrink = no
   padding = 20
   horizontal_padding = 20
@@ -33,8 +33,8 @@
   class = Dunst
   corner_radius = 0
 
-  mouse_left_click = close_current
-  mouse_middle_click = do_action
+  mouse_left_click = do_action, close_current
+  mouse_middle_click = close_current
   mouse_right_click = close_all
 
 [urgency_low]
@@ -54,3 +54,8 @@
   frame_color = "#989CFA"
   foreground = "#D9E0EE"
   timeout = 10
+
+[telegram]
+  appname = Telegram*
+  default_action_name = "Focus Telegram"
+  script = /home/user/bin/focus-telegram
