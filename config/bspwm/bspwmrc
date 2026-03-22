@@ -41,8 +41,9 @@ bspc rule -a feh state=floating
 
 # Disable screen saver and DPMS
 xset s off
-xset -dpms
 xset s noblank
+xset -dpms
+xset dpms 0 0 0
 
 # start resources
 xrdb merge ~/.Xresources
@@ -66,5 +67,5 @@ picom --config $HOME/.config/bspwm/picom_configurations/1.conf &
 # == autostart ==
 pkill flameshot; flameshot &
 
-# run cursor tracker
-pkill cursor_tracker ; ~/bin/cursor_tracker.sh
+# cursor tracker disabled - causes unwanted auto-lock
+# pkill cursor_tracker ; ~/bin/cursor_tracker.sh
